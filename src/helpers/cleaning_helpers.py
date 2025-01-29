@@ -6,5 +6,4 @@ def remove_1val_cols(df: pd.DataFrame) -> pd.DataFrame:
 
 def filter_only_lads(df: pd.DataFrame) -> pd.DataFrame:
     """Filters DataFrame to include only Local Authority District (LAD) data."""
-    df = df[df["geographic_level"] == "Local authority district"]
-    return df.drop(columns=["geographic_level"])
+    return df[df["geographic_level"].str.casefold() == "local authority district"]
