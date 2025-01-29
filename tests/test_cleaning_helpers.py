@@ -19,14 +19,8 @@ def test_filter_only_lads():
         "lad_code": ["", "E07000123", "", "E07000456"]
     })
     filtered_df = filter_only_lads(df)
-
-    # Ensure only the LAD rows remain (should be 2 due to case insensitivity)
     assert filtered_df.shape[0] == 2
-
-    # Ensure the correct rows are kept
     expected_lad_codes = {"E07000123", "E07000456"}
     assert set(filtered_df["lad_code"]) == expected_lad_codes
-
-    # Ensure 'geographic_level' is still present
-    assert "geographic_level" in filtered_df.columns  # Test was wrong before
+    assert "geographic_level" in filtered_df.columns
 
