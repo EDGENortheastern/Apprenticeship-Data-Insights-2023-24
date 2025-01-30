@@ -43,7 +43,7 @@ def test_remove_missing_lads():
         "other_col": [1, 2, 3]
     })
     df_cleaned = remove_missing_lads(df_partial)
-    assert df_cleaned.shape[0] == 1, "Failed: Not all missing rows were removed"
+    assert df_cleaned.shape[0] == 1, "Failed: Not all rows with missing data were removed"
     assert set(df_cleaned["lad_name"]) == {"A"}, "Failed: Remaining rows do not match expected values"
 
     df_all_missing = pd.DataFrame({
